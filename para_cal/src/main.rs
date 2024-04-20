@@ -35,7 +35,19 @@ fn para_to_memory(amount: f64, unit_para: &str, is_use_f32: bool, unit_memory: &
     }
 }
 
-fn memory_to_GPU(memory_gb: f64, gpu_type: &str) -> i64 {
+
+fn memory_to_GPU(memory_gb: f64, gpu_type: &str,
+		 unit_memory: &str) -> i64 {
+
+    let coefficent=match unit_memory{
+	"GB" => 1.0,
+	"TB" => 1.0*1024.0,
+	"MB" => 1.0/1024.0,
+	"KB" => 1.0/1024.0/1024.0,
+	"Byte" => 1.0/1024.0/1024.0,
+	_ => 1.0,
+    };
+
     let gpu_cap_map: HashMap<&str, f64> = HashMap::from([
         ("4090", 24.0),
         ("3090", 24.0),
@@ -46,7 +58,7 @@ fn memory_to_GPU(memory_gb: f64, gpu_type: &str) -> i64 {
     ]);
 
     if let Some(cap) = gpu_cap_map.get(gpu_type) {
-        (memory_gb / cap).ceil() as i64
+        (memory_gb / cap *coefficent).ceil() as i64
     } else {
            -1 
     }
@@ -63,7 +75,7 @@ pub fn para_to_GPU_api(
     if memory + 1.0 < 0.005 {
         (-1.0, -1)
     } else {
-        (memory, memory_to_GPU(memory, gpu_type))
+        (memory, memory_to_GPU(memory, gpu_type, unit_memory))
     }
 }
 

@@ -203,29 +203,7 @@ impl eframe::App for TemplateApp {
 		ui.label(self.gpu_num.as_str());
             });
 
-
-
-
 	    ui.separator();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         });
