@@ -20,7 +20,7 @@ fn main() -> eframe::Result<()> {
     eframe::run_native(
         "para2mem",
         native_options,
-        Box::new(|cc| Box::new(para2mem::TemplateApp::new(cc))),
+        Box::new(|cc| Box::new(paratrans_ui::TemplateApp::new(cc))),
     )
 }
 
@@ -37,7 +37,7 @@ fn main() {
             .start(
                 "the_canvas_id", // hardcode it
                 web_options,
-                Box::new(|cc| Box::new(para2mem::TemplateApp::new(cc))),
+                Box::new(|cc| Box::new(paratrans_ui::TemplateApp::new(cc))),
             )
             .await
             .expect("failed to start eframe");

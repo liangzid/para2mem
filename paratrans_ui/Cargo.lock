@@ -1809,7 +1809,11 @@ dependencies = [
 ]
 
 [[package]]
-name = "para2mem"
+name = "para_cal"
+version = "0.1.0"
+
+[[package]]
+name = "paratrans_ui"
 version = "0.1.0"
 dependencies = [
  "eframe",
@@ -1820,10 +1824,6 @@ dependencies = [
  "serde",
  "wasm-bindgen-futures",
 ]
-
-[[package]]
-name = "para_cal"
-version = "0.1.0"
 
 [[package]]
 name = "parking"
