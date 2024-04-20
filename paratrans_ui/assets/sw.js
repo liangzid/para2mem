@@ -1,4 +1,4 @@
-var cacheName = 'egui-template-pwa';
+var cacheName = 'para2mem';
 var filesToCache = [
   './',
   './index.html',
