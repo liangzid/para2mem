@@ -1,0 +1,29 @@
+#+title: PARA-to-MEM: A Simple Converter.
+#+date: Sat Apr 20 16:30:24 2024
+#+author: Zi Liang
+#+email: zi1415926.liang@connect.polyu.hk
+#+latex_class: elegantpaper
+#+filetags: ::
+
+
+#+BEGIN_SRC sh
+  rustup target add wasm32-unknown-unknown
+  cargo install --locked trunk
+
+    # debug
+  # trunk serve
+
+
+#+END_SRC
+
+
+
+To enable Github Pages, you need to go to Repository -> Settings -> Pages -> Source -> set to gh-pages branch and / (root).
+
+If gh-pages is not available in Source, just create and push a branch called gh-pages and it should be available.
+
+If you renamed the main branch to something else (say you re-initialized the repository with master as the initial branch), be sure to edit the github workflows .github/workflows/pages.yml file to reflect the change.
+
+
+
+
