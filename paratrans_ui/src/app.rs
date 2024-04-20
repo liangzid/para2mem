@@ -90,11 +90,10 @@ impl eframe::App for TemplateApp {
 
             ui.horizontal(|ui| {
                 ui.text_edit_singleline(&mut self.model_para);
-		egui::ComboBox::from_label("parameters")
+		egui::ComboBox::from_label("parameters.")
 		    .selected_text(&self.unit)
 		    .show_ui(ui, |ui|{
 			ui.style_mut().wrap=Some(false);
-			ui.set_min_width(60.0);
 			ui.selectable_value(&mut self.unit,
 					    "Billion".to_string(),
 					    "Billion",
@@ -113,7 +112,6 @@ impl eframe::App for TemplateApp {
 			);
 		    });
             });
-            ui.separator();
 
 	    ui.horizontal(|ui|{
 		ui.label("Datatype");
@@ -125,8 +123,9 @@ impl eframe::App for TemplateApp {
 			       "f16");
 	    });
 
+            ui.separator();
 
-	    // if ui.button("to Memory").clicked(){
+	    if ui.button("Calculate!").clicked(){
 		let amount= self.model_para.parse::<f64>()
 		    .unwrap_or(0.0);
 	    let is_f32=if self.datatype=="f32"{true} else {false};
@@ -141,18 +140,17 @@ impl eframe::App for TemplateApp {
 		// *(self.gpu_num)=gpu_num.to_string();
 		self.memory=memory.to_string();
 		self.gpu_num=gpu_num.to_string();
-	    // }
+	    }
 
 
             ui.horizontal(|ui| {
 		ui.label("Memory Used: ");
                 ui.text_edit_singleline(&mut self.memory);
 
-		egui::ComboBox::from_label("Memory Unit")
+		egui::ComboBox::from_id_source("Memory Unit")
 		    .selected_text(&self.unit_memory)
 		    .show_ui(ui, |ui|{
 			ui.style_mut().wrap=Some(false);
-			ui.set_min_width(60.0);
 			ui.selectable_value(&mut self.unit_memory,
 					    "GB".to_string(),
 					    "GB",
@@ -181,11 +179,10 @@ impl eframe::App for TemplateApp {
 
             ui.horizontal(|ui| {
 		ui.label("GPU Types: ");
-		egui::ComboBox::from_label("GPU Types")
+		egui::ComboBox::from_id_source("GPU Types")
 		    .selected_text(&self.gpu_type)
 		    .show_ui(ui, |ui|{
 			ui.style_mut().wrap=Some(false);
-			ui.set_min_width(60.0);
 			let gpu_type_ls=vec!["4090",
 					     "3090",
 					     "4080",
@@ -205,6 +202,32 @@ impl eframe::App for TemplateApp {
 		ui.label("Number of Requirements:");
 		ui.label(self.gpu_num.as_str());
             });
+
+
+
+
+	    ui.separator();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         });
     }
 }

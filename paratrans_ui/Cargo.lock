@@ -3,19 +3,6 @@
 version = 3
 
 [[package]]
-name = "ParaTransferGUI"
-version = "0.1.0"
-dependencies = [
- "eframe",
- "egui",
- "env_logger",
- "log",
- "para_cal",
- "serde",
- "wasm-bindgen-futures",
-]
-
-[[package]]
 name = "ab_glyph"
 version = "0.2.23"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1819,6 +1806,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d4586edfe4c648c71797a74c84bacb32b52b212eff5dfe2bb9f2c599844023e7"
 dependencies = [
  "ttf-parser",
+]
+
+[[package]]
+name = "para2mem"
+version = "0.1.0"
+dependencies = [
+ "eframe",
+ "egui",
+ "env_logger",
+ "log",
+ "para_cal",
+ "serde",
+ "wasm-bindgen-futures",
 ]
 
 [[package]]

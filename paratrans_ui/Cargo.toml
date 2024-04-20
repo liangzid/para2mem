@@ -1,5 +1,5 @@
 [package]
-name = "ParaTransferGUI"
+name = "para2mem"
 version = "0.1.0"
 authors = ["Zi Liang <frostliangzi@qq.com>"]
 edition = "2021"
